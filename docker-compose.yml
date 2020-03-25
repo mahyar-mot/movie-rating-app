@@ -7,7 +7,22 @@ services:
         ports:
             - "8000:8000"
         volumes: 
-            - "./backend:/app"
+            - ./backend:/app/backend
+        expose:
+            - "8000"
         command: >
          sh -c "python manage.py migrate &&
                 python manage.py runserver 0.0.0.0:8000"
+    frontend:
+        build:
+            context: ./frontend
+        tty: true
+        ports:
+            - "3000:3000"
+        expose:
+            - "3000"
+        volumes: 
+            - ./frontend:/app
+        links: 
+            - backend
+        command: npm run start

@@ -3,13 +3,13 @@ from django.contrib.auth import get_user_model
 from rest_framework import viewsets, decorators, response, status, authentication, permissions
 
 from .models import Movie, Rating
-from .serializers import MovieSerializer, RatingSerializer, MovieRatingSerializer
+from .serializers import MovieSerializer, RatingSerializer, MovieRatingSerializer, UserSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
 
     queryset = get_user_model().objects.all()
-    serializer_class = MovieSerializer
+    serializer_class = UserSerializer
 
 
 class MovieViewSet(viewsets.ModelViewSet):

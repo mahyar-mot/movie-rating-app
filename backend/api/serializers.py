@@ -6,7 +6,7 @@ from rest_framework.authtoken.models import Token
 from .models import Movie, Rating
 
 
-class MovieSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = get_user_model()
